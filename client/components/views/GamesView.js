@@ -53,6 +53,7 @@ class GamesView extends Component {
             aria-label="Search"
           />
           <button
+            style={{backgroundColor: 'white', border: '2px solid black'}}
             className="btn btn-outline-success my-2 my-sm-0"
             type="submit"
           >
