@@ -7,29 +7,61 @@ import {auth} from '../store'
  * COMPONENT
  */
 const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+  const {string, name, displayName, handleSubmit, error} = props
 
   return (
-    <div>
+    <div className="row">
+      <h4
+        style={{
+          textAlign: 'center',
+          border: '2px solid green',
+          padding: '10px',
+          backgroundColor: 'green'
+        }}
+      >
+        {string}
+      </h4>
       <form onSubmit={handleSubmit} name={name}>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            textContent: 'center'
+          }}
+          className="col"
+        >
           <label htmlFor="email">
             <small>Email</small>
           </label>
           <input name="email" type="text" />
         </div>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            textContent: 'center'
+          }}
+          className="col"
+        >
           <label htmlFor="password">
             <small>Password</small>
           </label>
           <input name="password" type="password" />
         </div>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            textContent: 'center'
+          }}
+        >
           <button type="submit">{displayName}</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <a href="/auth/google">{displayName} with Google</a>
+      <a style={{textDecoration: 'none', color: 'white'}} href="/auth/google">
+        {displayName} with Google
+      </a>
     </div>
   )
 }
@@ -43,6 +75,7 @@ const AuthForm = props => {
  */
 const mapLogin = state => {
   return {
+    string: 'Login to view your favorites!',
     name: 'login',
     displayName: 'Login',
     error: state.user.error
@@ -51,6 +84,7 @@ const mapLogin = state => {
 
 const mapSignup = state => {
   return {
+    string: 'Signup to add your favorites!',
     name: 'signup',
     displayName: 'Sign Up',
     error: state.user.error
