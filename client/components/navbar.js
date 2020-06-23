@@ -26,6 +26,19 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           >
             Home
           </Link>
+          <Link
+            to="/favorites"
+            style={{
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              color: 'white',
+              border: '2px solid whitesmoke',
+              padding: '10px',
+              borderRadius: '13px'
+            }}
+          >
+            Favorites
+          </Link>
           <a
             style={{
               textDecoration: 'none',

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchGameThunk} from '../../store'
+
+import {fetchGameThunk, addFavoriteGameThunk} from '../../store'
 
 class GamesView extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class GamesView extends Component {
             onChange={this.onChange}
             className="form-control mr-sm-2"
             type="search"
-            placeholder="Search for a game here!"
+            placeholder="Search for game here!"
             aria-label="Search"
           />
           <button
@@ -98,6 +99,13 @@ class GamesView extends Component {
                   }
                   alt="Game Cover"
                 />
+                <br />
+                <button
+                  type="button"
+                  onClick={() => this.props.addFavoriteGame(game.id)}
+                >
+                  Add To Favorites
+                </button>
               </div>
             )
           })}
@@ -108,7 +116,6 @@ class GamesView extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log({state})
   return {
     allGames: state.games.allGames
   }
@@ -116,7 +123,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchGame: input => dispatch(fetchGameThunk(input))
+    fetchGame: input => dispatch(fetchGameThunk(input)),
+    addFavoriteGame: gameId => dispatch(addFavoriteGameThunk(gameId))
   }
 }
 
