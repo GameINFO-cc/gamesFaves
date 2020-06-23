@@ -11,7 +11,16 @@ const AuthForm = props => {
 
   return (
     <div className="row">
-      <h4 style={{textAlign: 'center'}}>{string}</h4>
+      <h4
+        style={{
+          textAlign: 'center',
+          border: '2px solid green',
+          padding: '10px',
+          backgroundColor: 'green'
+        }}
+      >
+        {string}
+      </h4>
       <form onSubmit={handleSubmit} name={name}>
         <div
           style={{
