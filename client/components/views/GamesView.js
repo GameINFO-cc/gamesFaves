@@ -34,7 +34,8 @@ class GamesView extends Component {
           style={{
             background: '#1e272c',
             border: '1px solid black',
-            color: 'white'
+            color: 'white',
+            textAlign: 'center'
           }}
         >
           GAMES
@@ -42,6 +43,7 @@ class GamesView extends Component {
         <form
           onSubmit={this.onSubmit}
           className="form-inline my-2 my-lg-0 d-flex justify-content-center"
+          style={{display: 'flex', justifyContent: 'center'}}
         >
           <input
             onChange={this.onChange}
@@ -58,13 +60,27 @@ class GamesView extends Component {
           </button>
         </form>
         <div
-          className="all-games row "
-          style={{display: 'flex', justifyContent: 'space-evenely'}}
+          className="all-games row"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-evenely',
+            flexWrap: 'wrap',
+            padding: '25px'
+          }}
         >
           {this.props.allGames.map(game => {
             return (
-              <div key={game.id} className="col" style={{marginTop: '100px'}}>
-                <h4 style={{paddingBottom: '50px'}}>{game.name}</h4>
+              <div
+                key={game.id}
+                className="col"
+                style={{
+                  padding: '10px',
+                  overflowWrap: 'break-word',
+                  wordWrap: 'break-word',
+                  display: 'inline-block'
+                }}
+              >
+                <h4 style={{textAlign: 'center'}}>{game.name}</h4>
                 <img
                   style={{
                     borderRadius: '12px',
