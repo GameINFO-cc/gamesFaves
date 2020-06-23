@@ -150,7 +150,7 @@ export const removeFavoriteGameThunk = gameId => {
     try {
       const {id} = useState().user
 
-      const {data} = await axios.delete(`/api/favorites/${id}`, {gameId})
+      const {data} = await axios.delete(`/api/favorites/${id}/${gameId}`)
 
       console.log({data})
 

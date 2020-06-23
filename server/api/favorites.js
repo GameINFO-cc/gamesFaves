@@ -28,15 +28,18 @@ router.post('/:userId', async (req, res, next) => {
   }
 })
 
-router.delete('/:userId', async (req, res, next) => {
-  const {userId} = req.params
-  const {gameId} = req.body
+router.delete('/:userId/:gameId', async (req, res, next) => {
+  const {userId, gameId} = req.params
+
+  console.log({userId, gameId})
 
   try {
     const favorite = await Favorite.destroy({
       where: {userId, gameId},
       returning: true
     })
+
+    console.log({favorite})
 
     res.json(favorite)
   } catch (err) {
