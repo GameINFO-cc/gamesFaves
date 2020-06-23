@@ -6,21 +6,68 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <h1>BOILERMAKER</h1>
-    <nav>
+    <h1>GamesFAVE</h1>
+    <nav style={{display: 'flex', justifyContent: 'flex-end'}}>
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
+          <Link
+            to="/home"
+            style={{
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              color: 'white',
+              border: '2px solid whitesmoke',
+              padding: '10px',
+              borderRadius: '13px'
+            }}
+          >
+            Home
+          </Link>
+          <a
+            style={{
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              color: 'white',
+              border: '2px solid whitesmoke',
+              padding: '10px',
+              borderRadius: '13px'
+            }}
+            href="#"
+            onClick={handleClick}
+          >
             Logout
           </a>
         </div>
       ) : (
         <div>
           {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Link
+            style={{
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              color: 'white',
+              border: '2px solid whitesmoke',
+              padding: '10px',
+              borderRadius: '13px'
+            }}
+            to="/login"
+          >
+            Login
+          </Link>
+          <Link
+            style={{
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              color: 'white',
+              border: '2px solid whitesmoke',
+              padding: '10px',
+              borderRadius: '13px'
+            }}
+            to="/signup"
+          >
+            Sign Up
+          </Link>
         </div>
       )}
     </nav>
