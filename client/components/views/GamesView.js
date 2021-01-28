@@ -95,7 +95,7 @@ class GamesView extends Component {
                     game.cover && game.cover.url
                       ? game.cover.url.replace('t_thumb', 't_720p')
                       : // ? game.cover.url.replace("t_thumb", "720_p")
-                        'https://games.vodacom.co.za/assets/rich/placeholder_games_cover.png'
+                        'https://lh3.googleusercontent.com/proxy/QcQ_gWdDrCMJnsDWwnMCW7R_dcq7c1d4ZHZ56E6Et0CDlwl-UAIQz_HUGPs1tuLAblJ6FX0rBAfb806nlygYHY-_argEbFV-CqVfgnHg1BqDZ2IGj_DR4qE5SHJsujudpkx5GhCKgkBNACcY0Cfw2Z21Ofcz8qo1in8fZWi7pMu2k2Aw1k63jaLNrA3ldhshug'
                   }
                   alt="Game Cover"
                 />

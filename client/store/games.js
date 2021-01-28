@@ -45,14 +45,15 @@ export const fetchGameThunk = input => {
   return async dispatch => {
     try {
       const {data} = await axios({
-        url: `https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/?search=${input}&limit=20&fields=category,cover.url,first_release_date,genres,name,platforms,popularity,rating,rating_count,release_dates,screenshots,storyline,summary,tags,total_rating,total_rating_count,url`,
+        url: `https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/?search=${input}&limit=20&fields=age_ratings,aggregated_rating,aggregated_rating_count,alternative_names,artworks,bundles,category,checksum,collection,cover.url,created_at,dlcs,expansions,external_games,first_release_date,follows,franchise,franchises,game_engines,game_modes,genres,hypes,involved_companies,keywords,multiplayer_modes,name,parent_game,platforms,player_perspectives,rating,rating_count,release_dates,screenshots,similar_games,slug,standalone_expansions,status,storyline,summary,tags,themes,total_rating,total_rating_count,updated_at,url,version_parent,version_title,videos,websites`,
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          'user-key': '5d814ccfdde668d67c178b8cd959feff'
+          'Client-ID': 'xm3d193xwm79nvjmvklzg9cp7qwd8g',
+          Authorization: 'Bearer dzaecth0in75m5hnin8q45miemobgg'
         },
         data:
-          'limit: 20; fields category,cover.url,first_release_date,genres,name,platforms,popularity,rating,rating_count,release_dates,screenshots,storyline,summary,tags,total_rating,total_rating_count,url;'
+          'limit: 20; fields age_ratings,aggregated_rating,aggregated_rating_count,alternative_names,artworks,bundles,category,checksum,collection,cover.url,created_at,dlcs,expansions,external_games,first_release_date,follows,franchise,franchises,game_engines,game_modes,genres,hypes,involved_companies,keywords,multiplayer_modes,name,parent_game,platforms,player_perspectives,rating,rating_count,release_dates,screenshots,similar_games,slug,standalone_expansions,status,storyline,summary,tags,themes,total_rating,total_rating_count,updated_at,url,version_parent,version_title,videos,websites;'
       })
       console.log({data})
       dispatch(fetchAllGames(data))
@@ -67,14 +68,15 @@ export const fetchGamesThunk = () => {
     try {
       const {data} = await axios({
         url:
-          'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games',
+          'https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games',
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          'user-key': '5d814ccfdde668d67c178b8cd959feff'
+          'Client-ID': 'xm3d193xwm79nvjmvklzg9cp7qwd8g',
+          Authorization: 'Bearer dzaecth0in75m5hnin8q45miemobgg'
         },
         data:
-          'limit: 20; fields category,cover.url,first_release_date,genres,name,platforms,popularity,rating,rating_count,release_dates,screenshots,storyline,summary,tags,total_rating,total_rating_count,url;'
+          'limit: 20; fields age_ratings,aggregated_rating,aggregated_rating_count,alternative_names,artworks,bundles,category,checksum,collection,cover.url,created_at,dlcs,expansions,external_games,first_release_date,follows,franchise,franchises,game_engines,game_modes,genres,hypes,involved_companies,keywords,multiplayer_modes,name,parent_game,platforms,player_perspectives,rating,rating_count,release_dates,screenshots,similar_games,slug,standalone_expansions,status,storyline,summary,tags,themes,total_rating,total_rating_count,updated_at,url,version_parent,version_title,videos,websites;'
       })
 
       console.log({data})
@@ -98,13 +100,14 @@ export const fetchFavoriteGamesThunk = () => {
       const promises = data.map(game =>
         axios({
           url:
-            'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/',
+            'https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games',
           method: 'POST',
           headers: {
             Accept: 'application/json',
-            'user-key': '5d814ccfdde668d67c178b8cd959feff'
+            'Client-ID': 'xm3d193xwm79nvjmvklzg9cp7qwd8g',
+            Authorization: 'Bearer dzaecth0in75m5hnin8q45miemobgg'
           },
-          data: `limit: 20; fields category,cover.url,first_release_date,genres,name,platforms,popularity,rating,rating_count,release_dates,screenshots,storyline,summary,tags,total_rating,total_rating_count,url;where id=${
+          data: `limit: 20; fields age_ratings,aggregated_rating,aggregated_rating_count,alternative_names,artworks,bundles,category,checksum,collection,cover.url,created_at,dlcs,expansions,external_games,first_release_date,follows,franchise,franchises,game_engines,game_modes,genres,hypes,involved_companies,keywords,multiplayer_modes,name,parent_game,platforms,player_perspectives,rating,rating_count,release_dates,screenshots,similar_games,slug,standalone_expansions,status,storyline,summary,tags,themes,total_rating,total_rating_count,updated_at,url,version_parent,version_title,videos,websites;where id=${
             game.gameId
           };`
         })
