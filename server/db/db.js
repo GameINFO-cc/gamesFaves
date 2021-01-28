@@ -4,7 +4,7 @@ const pkg = require('../../package.json')
 const databaseName = pkg.name + (process.env.NODE_ENV === 'test' ? '-test' : '')
 
 const db = new Sequelize(
-  'postgres://postgres:Supervinom12@localhost:5432/capstone',
+  'postgres://postgres:Supervinom12@https://gamefaves123445.herokuapp.com:5432/capstone',
   {
     logging: false
   }
